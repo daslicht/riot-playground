@@ -65,14 +65,13 @@
 
 		riot.route( function( collection, id, action) {
 			//console.log(collection, id, action);
+			$('#content').animateCss('fadeOut');
 
-      $('#content').animateCss('fadeOut');
-
-      $('#content').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function(){
-        console.info('after animation');
-        $('#content').animateCss('fadeIn');
-        riot.mount('div#content', collection, mixinObjectOne);
-      });
+			$('#content').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function(){
+				console.info('after animation');
+				$('#content').animateCss('fadeIn');
+				riot.mount('div#content', collection, mixinObjectOne);
+			});
 
 		});
 		riot.route.start(true);
